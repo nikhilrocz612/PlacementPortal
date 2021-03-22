@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+        <style>
+            *{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body{
+  background: #fff;
+}
+
+
+.wrapper .sidebar{
+  z-index: 1;
+  background: #2F323A;
+  position: fixed;
+  top: 70px;
+  width: 250px;
+  height: calc(100% - 9%);
+  transition: 0.3s;
+  transition-property: width;
+  overflow-y: auto;
+}
+
+.wrapper .sidebar .sidebar-menu{
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .profile img{
+  margin: 20px 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.wrapper .sidebar .sidebar-menu .profile p{
+  color: #bbb;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.wrapper .sidebar .sidebar-menu .item{
+  width: 250px;
+  overflow: hidden;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn{
+  display: block;
+  color: #fff;
+  position: relative;
+  padding: 25px 20px;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
+  color: #4CCEE8;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn i{
+  margin-right: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu{
+  background: #3498DB;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s;
+  transition-property: background, max-height;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a{
+  display: block;
+  position: relative;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 15px;
+  padding: 20px;
+  transition: 0.3s;
+  transition-property: background;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a:hover{
+  background: #55B1F0;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a:not(last-child){
+  border-bottom: 1px solid #8FC5E9;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu i{
+  padding-right: 20px;
+  font-size: 10px;
+}
+
+.wrapper .sidebar .sidebar-menu .item:target .sub-menu{
+  max-height: 500px;
+}
+
+
+.wrapper.collapse .sidebar{
+  width: 70px;
+}
+
+.wrapper.collapse .sidebar .profile img,
+.wrapper.collapse .sidebar .profile p,
+.wrapper.collapse .sidebar a span{
+  display: none;
+}
+
+.wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
+  font-size: 23px;
+}
+
+.wrapper.collapse .sidebar .sidebar-menu .item .sub-menu i{
+  font-size: 18px;
+  padding-left: 3px;
+}
+
+.wrapper.collapse .main-container{
+  width: calc(100% - 70px);
+  margin-left: 70px;
+}
+
+.wrapper .main-container .card{
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+        </style>
+		<meta charset="utf-8">
+		<title>KLEF/Student/Dashboard</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+
+		<!--wrapper start-->
+		<div class="wrapper">
+			<!--header menu start-->
+			<div class="header">
+				<div class="header-menu">
+					<div class="title">Student<span>Board</span></div>
+					<div class="sidebar-btn">
+						<i class="fas fa-bars"></i>
+					</div>
+					<ul>
+						<li><a href="#"><i class="fas fa-bell"></i></a></li>
+						<li><a href="#"><i class="fas fa-power-off"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<!--header menu end-->
+			<!--sidebar start-->
+			<div class="sidebar">
+				<div class="sidebar-menu">
+					<center class="profile">
+						
+					<li class="item">
+						<a href="#" class="menu-btn">
+							<i class="fas fa-desktop"></i><span>Dashboard</span>
+						</a>
+					</li>
+					<li class="item" id="profile">
+						<a href="/profile" class="menu-btn">
+							<i class="fas fa-user-circle"></i><span>Profile <i class="fas fa-chevron-down drop-down"></i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><i class="fas fa-address-card"></i><span>Info</span></a>
+						</div>
+					</li>
+					<li class="item" id="messages">
+						<a href="#messages" class="menu-btn">
+							<i class="fa fa-book fa-fw"></i><span>Tests/Material<i class="fas fa-chevron-down drop-down"></i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><i class="fas fa-envelope"></i><span>Practice Material</span></a>
+							<a href="#"><i class="fas fa-envelope-square"></i><span>Tests</span></a>
+							<a href="#"><i class="fas fa-exclamation-circle"></i><span>Results</span></a>
+						</div>
+					</li>
+					<li class="item" id="settings">
+						<a href="#settings" class="menu-btn">
+							<i class="fas fa-search"></i><span>Job Oppurtunities <i class="fas fa-chevron-down drop-down"></i></span>
+						</a>
+						<div class="sub-menu">
+							<a href="#"><i class="fas fa-list"></i><span>Ongoing</span></a>
+							<a href="#"><i class="fas fa-language"></i><span>Upcoming</span></a>
+						</div>
+					</li>
+				</div>
+			</div>
+			<!--sidebar end-->
+			<!--main container start-->
+			<div class="main-container">
+			</div>
+			<!--main container end-->
+		</div>
+		<!--wrapper end-->
+
+	</body>
+</html>

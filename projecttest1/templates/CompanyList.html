@@ -1,0 +1,29 @@
+{% extends 'base1.html' %}
+{% block content %}
+<center><h2><strong>List of Companies</strong></h2></center>
+      <style>
+      .grid-container {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 200px 200px 200px;
+        grid-gap: 50px;
+        padding: 10px;
+        border-radius: 15px;
+      } 
+      .grid-container > div {
+        background-color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+        border-radius: 15px;
+      }
+      </style>
+      <div class="grid-container">
+        {% include 'message.html' %}
+        {% for CompanyData in liste %}
+        <div>
+      <h4 class="title">{{ CompanyData.Company_name }}</h4>  
+        <h5 class="title"><a href="{% url 'CompanyData' CompanyData.Company_name %}">{{ CompanyData.Company_name }}</a></h5>
+      </div>
+    {% endfor %}
+{%endblock %}

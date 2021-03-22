@@ -1,0 +1,53 @@
+{% extends 'base1.html' %}
+{% block content %}
+<style>
+  tr{
+    background-color: beige;
+    border: black;
+  }
+  
+  th, td {
+  text-align: center;
+  padding: 10px;
+  }
+  h2 {
+    text-align: center;
+  }
+  </style>
+  <style>
+  h2{
+    letter-spacing: 1px;
+  }
+  </style>
+  <h2><strong>Eligible Companies</strong></h2>
+  <table class="table table-sm table-dark">
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Company Name</th>
+          <th>Link</th>
+          <th>Application_START_date</th>
+          <th>Application_End_date</th>
+          <th>Eligible_cgpa</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for CompanyData in liste %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ CompanyData.Company_name }}</td>
+        <td>
+            <a href="{% url 'CompanyData' CompanyData.Company_name %}">{{ CompanyData.Company_name }}<br></a>
+          </a>
+        </td>
+        <td>{{ CompanyData.application_start_date }}</td>
+        <td>{{ CompanyData.application_end_date }}</td>
+        <td>{{ CompanyData.Eligibility_cgpa }}</td>
+      </tr> 
+    {% endfor %}
+  </tbody>
+</table></div>
+</table>
+{%endblock %}

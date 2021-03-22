@@ -1,0 +1,21 @@
+{% extends 'base1.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<style>
+  .asteriskField{
+    display: inline-block;
+    color: rgb(85, 21, 5);
+  }
+  .form{
+    color: black;
+    font-weight: bold;
+    font-family: "times new Roman";
+  }
+</style>
+ <center><strong><h2 >Fill your details</h2> </strong></center>
+     <form method="POST" class=container style="padding: left 100px;" enctype="multipart/form-data">
+         {%csrf_token %}
+         <strong style="font-size:20px;">{{ form|crispy}}</strong>
+         <button type="submit" class="btn-primary"> +Add student</button>
+     </form>   
+{% endblock %}

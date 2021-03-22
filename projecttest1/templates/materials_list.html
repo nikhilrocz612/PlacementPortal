@@ -1,0 +1,64 @@
+{% extends 'base1.html' %}
+{% block content %}
+<style>
+tr{
+  background-color: beige;
+  border: black;
+}
+
+th, td {
+text-align: center;
+padding: 10px;
+}
+</style>
+<style>
+  h2 {
+    text-align: center;
+  }
+  </style>
+  <style>
+  h2{
+    letter-spacing: 1px;
+  }
+  </style>
+<h2><strong>Available Materials</strong></h2>
+{% include 'message.html' %}
+<table class="table table-dark table-striped">
+  <div class="table-responsive">
+      <thead>
+        <table  class="table mb-0" align="center" style="width:800px; line-height:50px">
+        <tr>
+          <strong><th>S.no</th></strong>
+          <strong><th>File Name</th></strong>
+          <strong><th>Download</th></strong>
+          {% if user.is_staff%}
+          <strong><th>Delete</th></strong>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for Material in materials %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ Material.FileName }}</td>
+            <td>
+              <a href= "{{ Material.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                Download PDF
+              </a>
+            </td>
+            {% if user.is_staff %}
+            <td>
+              <form method="post" action="{% url 'delete_materials' Material.id %}">
+              {% csrf_token %}
+              
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody></table>
+    </table>
+  </div>
+</table>
+{%endblock %}

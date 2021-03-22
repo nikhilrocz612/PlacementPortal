@@ -1,0 +1,46 @@
+{% extends 'base1.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<style>
+        h2
+        {
+                color: brown;
+        }
+        p
+        {
+                color: rgb(12, 12, 12);
+        }
+        h3
+        {
+                color: brown;
+        }
+        h4
+        {
+                color: brown;
+        }
+</style>
+<div class="row ">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                 <h1>JOB PROFILE</h1>
+<a href="{% url 'StudentsList' companyd.Company_name %}">Eligible StudentsList<br></a>
+<h3>Company Name :<span style="color:rgb(19, 18, 18)">{{ companyd.Company_name}} </span></h4>
+<h4>About Company :<span style="color:rgb(15, 15, 15)">{{ companyd.About_company }}</span></h3>
+<h3>Company Link : <span style="color:rgb(12, 12, 12)">
+{{ companyd.Company_link }}</span></h2>
+<h3>JobRole : <span style="color:rgb(12, 12, 12)">{{ companyd.Jobrole }}</span></h3>
+<h3>Job Responsibilities</h3>
+<p>{{ companyd.Job_responsilities }}</p>
+<h3>Job Salary : <span style="color:rgb(14, 13, 13)">{{ companyd.Job_Salary }}</span></h3>
+<h3>Eligible CGPA  :  <span style="color:rgb(15, 15, 15)">{{ companyd.Eligibility_cgpa }} </span></h3>
+<h3>Eligible Branches  :  <span style="color:rgb(17, 17, 17)">{{ companyd.Eligibility_branches }} </span></h3>
+<h3>Eligible Batches  : <span style="color:rgb(19, 18, 18)">{{ companyd.Eligible_Passedout_Batchs }} </span></h3>
+<h3>Education Gap  : <span style="color:rgb(14, 13, 13)">{{ companyd.Eligibility_education_gap}} </span></h3>
+<h3>Start Date  : <span style="color:rgb(10, 10, 10)">{{  companyd.application_start_date}} </span></h3>
+<h3>End Date  :  <span style="color:rgb(14, 13, 13)">{{  companyd.application_end_date}} </span></h3>
+<br>  </div> 
+</div> 
+</div>
+</div>   
+{%endblock %}
